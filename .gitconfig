@@ -1,3 +1,6 @@
-[filter "strip-notebook-output"]
-clean = "nbstripout"
-smudge = "cat"
+[filter "nbstripout"]
+        clean = \"/usr/bin/python\" -m nbstripout
+        smudge = cat
+        required = true
+[diff "ipynb"]
+        textconv = \"/usr/bin/python\" -m nbstripout -t
